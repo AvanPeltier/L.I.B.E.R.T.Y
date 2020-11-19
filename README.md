@@ -4,6 +4,6 @@
 
 11/18/2020
 Status: IN PROGRESS
-MDF board on which the lights will be mounted will be acquored soon. Borrowed RaspBerry Pi for winter break to begin code for the board.
+MDF board on which the lights will be mounted will be acquired soon. Borrowed RaspBerry Pi for winter break to begin code for the board.
 LED strips (unknown)
 
