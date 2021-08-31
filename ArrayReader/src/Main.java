@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("Printing Inputs: ");
         Scanner scanner = new Scanner(System.in);
-        ArrayReader arrayReader = new ArrayReader("C:\\Users\\Avan Peltier\\Documents\\GitHub\\L.I.B.E.R.T.Y\\LightFiles\\" + scanner.nextLine());
+        ArrayReader arrayReader = new ArrayReader("C:\\Users\\Avan Peltier\\Documents\\GitHub\\Liberty\\L.I.B.E.R.T.Y\\LightFiles\\" + args[0]);
         arrayReader.Print(arrayReader.readFile);
         arrayReader.Save(arrayReader.readFile);
         System.out.println("Read complete");
