@@ -94,24 +94,46 @@ public class WriterGUI extends JFrame implements WindowListener,ActionListener {
     public void Save() throws IOException {
         CreateFile();
         try {
-            FileWriter writer = new FileWriter("C:\\Users\\Avan Peltier\\Documents\\GitHub\\L.I.B.E.R.T.Y\\LightFiles\\" + this.field.getText() + ".txt");
+            FileWriter writer = new FileWriter("C:\\Users\\Avan Peltier\\Documents\\GitHub\\Liberty\\L.I.B.E.R.T.Y\\LightFiles\\" + this.field.getText() + ".txt");
             for (int i = 0; i < 48; i++){
-                for (int j = 0; j < 54; j++){
-                    Color color = buttons[i][j].getBackground();
-                    if (color.equals(Color.BLACK)){
-                        writer.write("0 ");
+                if (i % 2 == 0){
+                    for (int j = 0; j < 54; j++){
+                        Color color = buttons[i][j].getBackground();
+                        if (color.equals(Color.BLACK)){
+                            writer.write("0 ");
+                        }
+                        else if (color.equals(Color.BLUE)){
+                            writer.write("B ");
+                        }
+                        else if (color.equals(Color.RED)){
+                            writer.write("R ");
+                        }
+                        else if (color.equals(Color.GREEN)){
+                            writer.write("G ");
+                        }
+                        else if (color.equals(Color.WHITE)){
+                            writer.write("W ");
+                        }
                     }
-                    else if (color.equals(Color.BLUE)){
-                        writer.write("B ");
-                    }
-                    else if (color.equals(Color.RED)){
-                        writer.write("R ");
-                    }
-                    else if (color.equals(Color.GREEN)){
-                        writer.write("G ");
-                    }
-                    else if (color.equals(Color.WHITE)){
-                        writer.write("W ");
+                }
+                else{
+                    for (int j = 53; j >= 0; j--){
+                        Color color = buttons[i][j].getBackground();
+                        if (color.equals(Color.BLACK)){
+                            writer.write("0 ");
+                        }
+                        else if (color.equals(Color.BLUE)){
+                            writer.write("B ");
+                        }
+                        else if (color.equals(Color.RED)){
+                            writer.write("R ");
+                        }
+                        else if (color.equals(Color.GREEN)){
+                            writer.write("G ");
+                        }
+                        else if (color.equals(Color.WHITE)){
+                            writer.write("W ");
+                        }
                     }
                 }
             }
@@ -126,7 +148,7 @@ public class WriterGUI extends JFrame implements WindowListener,ActionListener {
 
     private void CreateFile() throws IOException {
         try {
-            File currFile = new File("C:\\Users\\Avan Peltier\\Documents\\GitHub\\L.I.B.E.R.T.Y\\LightFiles\\" + this.field.getText() + ".txt");
+            File currFile = new File("C:\\Users\\Avan Peltier\\Documents\\GitHub\\Liberty\\L.I.B.E.R.T.Y\\LightFiles\\" + this.field.getText() + ".txt");
             if (currFile.createNewFile()){
                 System.out.println("File Created: " + currFile.getName());
             }
