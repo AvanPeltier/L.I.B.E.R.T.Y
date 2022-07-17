@@ -65,6 +65,7 @@
 				</executions>
 				<configuration>
 					<mainClass>com.writer.api.writerapi.WriterApiApplication</mainClass>
+					
 					<arguments></arguments>
 				</configuration>
 			</plugin>

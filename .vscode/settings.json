@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "writer-api"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Program Files\\Java\\jdk-15.0.2\\lib\\jrt-fs.jar"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
