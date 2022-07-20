@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.writer.api.writerapi.model.Files;
 import com.writer.api.writerapi.persistence.FileDAO;
@@ -22,8 +23,8 @@ import java.util.logging.Logger;
 
 
 @RestController
-@RequestMapping("files")
-public class WriterController {
+@RequestMapping("")
+public class WriterController{
     private static final Logger LOG = Logger.getLogger(WriterController.class.getName());
     private FileDAO fileDao;
 
@@ -32,8 +33,12 @@ public class WriterController {
         this.fileDao = fileDao;
     }
 
+	@GetMapping("/")
+	public ResponseEntity<Boolean> start(){
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
-    @GetMapping("/{id}")
+    @GetMapping("/files/{id}")
     public ResponseEntity<Files> getFile(@PathVariable int id) {
         LOG.info("GET /files/" + id);
         try {
@@ -49,7 +54,7 @@ public class WriterController {
         }
     }
 
-    @GetMapping("")
+    @GetMapping("/files")
     public ResponseEntity<Files[]> getFiles() {
         LOG.info("GET /files");
 
@@ -67,7 +72,7 @@ public class WriterController {
 	}
     }
 
-    @GetMapping("/")
+    @GetMapping("/files/{name}")
     public ResponseEntity<Files[]> searchFiles(@RequestParam String name) {
         LOG.info("GET /files/?name="+name);
         try{
@@ -84,7 +89,7 @@ public class WriterController {
 	}
     }
 
-    @PostMapping("")
+    @PostMapping("/files/")
     public ResponseEntity<Files> createFile(@RequestBody Files file) {
         LOG.info("POST /files " + file);
 	try{
@@ -101,7 +106,7 @@ public class WriterController {
 	}
     }
 
-    @PutMapping("")
+    @PutMapping("/files/")
     public ResponseEntity<Files> updateFile(@RequestBody Files file) {
         LOG.info("PUT /files " + file);
         try{
@@ -118,7 +123,7 @@ public class WriterController {
 	}
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{files/id}")
     public ResponseEntity<Files> deleteFile(@PathVariable int id) {
         LOG.info("DELETE /files/" + id);
 

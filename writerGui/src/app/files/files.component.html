@@ -1,1 +1,16 @@
-<p>files works!</p>
+<!DOCTYPE html>
+<div class="toolbar" role="banner">
+    <img
+      width="40"
+      alt="CSH Logo"
+      src="../assets/white_square.png"
+      />
+    <span>L.I.B.E.R.T.Y</span>
+      <div class="spacer"></div>
+  </div>
+  
+  <div class="content" role="main">
+    <div *ngFor="let char in frames"><button>{{char}}</button></div>
+  </div>
+
+<router-outlet></router-outlet>
