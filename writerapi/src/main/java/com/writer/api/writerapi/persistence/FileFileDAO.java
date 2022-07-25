@@ -101,9 +101,9 @@ public class FileFileDAO implements FileDAO {
     ** {@inheritDoc}
      */
     @Override
-    public Files[] findFiles(String containsText) {
+    public Files[] findFiles(String user) {
         synchronized(files) {
-            return getFilesArray(containsText);
+            return getFilesArray(user);
         }
     }
 
@@ -127,7 +127,7 @@ public class FileFileDAO implements FileDAO {
     public Files createFile(Files file) throws IOException{
         synchronized(files) {
 
-            Files newFile = new Files(nextId(),file.getName(), file.getNumFrames(), file.getFrames());
+            Files newFile = new Files(nextId(),file.getName(), file.getNumFrames(), file.getFrames(), file.getUser());
             files.put(newFile.getId(),newFile);
             save(); // may throw an IOException
             return newFile;

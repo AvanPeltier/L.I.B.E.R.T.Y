@@ -3,9 +3,11 @@ import { FilesService } from '../files.service';
 import { MessageService } from '../message.service';
 export interface Files {
   id: number;
+  user: string;
   name: string;
   numFrames: number;
   frames: string[];
+  approved: boolean;
 }
 
 @Component({
@@ -26,22 +28,8 @@ export class FilesComponent implements OnInit {
   finalFile: Files | undefined;
   constructor(private filesService: FilesService,
     private messageService: MessageService){};
-
-  ngOnInit(): void{
-    this.createBlank();
-    //this.getFiles;
+  
+  ngOnInit(): void {
+      
   }
-
-
-  createBlank(): void {
-    for(let i = 0; i < 48; i++){
-      for(let j = 0; j < 56; j++){
-        this.frames[this.numFrames - 1][i][j] = '0';
-      }
-    }
   }
-
-  getFiles(): void{
-    this.filesService.getFiles().subscribe(files => this.files = files)
-  }
-}

@@ -89,7 +89,7 @@ public class WriterController{
 	}
     }
 
-    @PostMapping("/files/")
+    @PostMapping("/files")
     public ResponseEntity<Files> createFile(@RequestBody Files file) {
         LOG.info("POST /files " + file);
 	try{

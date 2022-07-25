@@ -11,14 +11,16 @@ public class Files {
     static final String STRING_FORMAT = "File [id=%d, name=%s, numFrames=%d]";
 
     @JsonProperty("id") private int id;
+    @JsonProperty("user") private String user;
     @JsonProperty("name") private String name;
     @JsonProperty("numFrames") private int numFrames;
     @JsonProperty("frames") private String[] frames;
     @JsonProperty("approved") boolean approved;
 
     public Files(@JsonProperty("id") int id, @JsonProperty("name") String name,
-                @JsonProperty("numFrames") int numFrames, @JsonProperty("frames") String[] frames) {
+                @JsonProperty("numFrames") int numFrames, @JsonProperty("frames") String[] frames, @JsonProperty("user") String user) {
         this.id = id;
+        this.user = user;
         this.name = name;
         this.numFrames = numFrames;
         for (int i = 0; i < numFrames; i++){
@@ -29,6 +31,8 @@ public class Files {
 
 
     public int getId(){return this.id;}
+
+    public String getUser(){return this.user;}
 
     public void setName(String name) {this.name = name;}
 

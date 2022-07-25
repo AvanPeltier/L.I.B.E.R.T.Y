@@ -10,9 +10,9 @@
 </div>
 
 <div class="content" role="main" >
-  <table *ngIf="true" class="table">
+  <table class="table">
     <tbody>
-      <tr  *ngFor="let rows of frames[(currFrame - 1)]; let i = index"><td *ngFor="let columns of rows; let j = index">
+      <tr  *ngFor="let rows of frames[currFrame - 1]; let i = index"><td *ngFor="let columns of rows; let j = index">
         <button *ngIf="columns == '0'" class="blackbutton" (click)="buttonClick(columns, i, j)" ></button>
         <button *ngIf="columns == 'W'" class="whitebutton" (click)="buttonClick(columns, i, j)"></button>
         <button *ngIf="columns == 'Y'" class="yellowbutton" (click)="buttonClick(columns, i, j)"></button>
@@ -24,6 +24,11 @@
     </tbody>
   </table>
   <form #f="ngForm" (submit)="postForm(f)">
+    <button *ngIf="currFrame != 1"> &lt; </button>
+    <button *ngIf="currFrame < numFrames"> &gt; </button>
+    <br>
+    <button (click)="addFrame()"> + </button> <button (click)="delFrame()"> - </button>
+    <br>
     <label for="name-input">Filename: </label>
     <input name="name" id = "name-input" #fileName ngModel/><br>
     <button>Submit</button>

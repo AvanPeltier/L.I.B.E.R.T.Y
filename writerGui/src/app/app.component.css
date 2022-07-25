@@ -37,6 +37,14 @@
     font-weight: 600;
   }
 
+  .button-grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500;
+    height: 500;
+    background-color: #ccc;
+  }
+
   .toolbar img {
     margin: 0 16px;
   }
@@ -47,7 +55,10 @@
   }
 
   
-
+  .table{
+    background-color: #ccc;
+    display: flex;
+  }
   .toolbar #filelink:hover {
     opacity: 0.8;
   }
